@@ -2,10 +2,11 @@
     <div class="nav-container">
         <a href="/" class="nav-logo" title="Back to Homepage">Page</a>
         <div class="nav-links">
-            <a href="/about"  class="link">About me</a>
-            <a href="/blog"  class="link">Blog</a>
-            <a href="/projects"  class="link">My project</a>
-            <a href="/contact"  class="link">Contacts</a>
+            {#each nav as link}
+                {#if link.isShow}
+                   <a href={link.href} class="link">{link.title}</a>
+                {/if}
+            {/each}
         </div>
     </div>
 </nav>
@@ -19,3 +20,32 @@
         margin: 50px auto;
     }
 </style>
+<script>
+    const nav = [
+        {
+            title:"About me",
+            href:"/about",
+            isShow: true
+        },
+        {
+            title:"Blog",
+            href:"/blog",
+            isShow: true
+        },
+        {
+            title:"My project",
+            href:"project",
+            isShow: true
+        },
+        {
+            title:"contact",
+            href:"contact",
+            isShow: true
+        },
+        {
+            title:"temp",
+            href:"temp",
+            isShow: false
+        }
+    ]
+</script>
